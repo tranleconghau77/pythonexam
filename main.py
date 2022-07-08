@@ -46,6 +46,7 @@ for z in list_cards:
     print(z)
 
 #House PC
+##
 house["value"] = random.choice(list_cards)
 print(house["name"] + " card value " + house["value"])
 
