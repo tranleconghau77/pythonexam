@@ -1,5 +1,9 @@
+from ast import arguments
 import random
 
+##Initialize variables
+
+player_points = 60
 
 player = {
     "name" : "PLAYER",
@@ -55,10 +59,6 @@ def add_cards():
 
 add_cards()
 
-for z in list_cards:
-    print(len(list_cards))
-    print(z)
-
 #House PC
 ##
 house["value"] = random.choice(list_cards)
@@ -103,6 +103,12 @@ def compare_value(player_name_card,house_name_card):
 
 
 result = compare_value(player["value"], house["value"])
-
 print("Result",result)
+
+play_guess = input("Your guess")
+
+if play_guess == result:
+    switch arguments:
+        case "stop":
+            return player_points; 
 
