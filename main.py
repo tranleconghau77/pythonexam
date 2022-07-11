@@ -75,6 +75,8 @@ player["value"] = player_random_value
 print(player["name"] + ": " + player["value"])
 
 
+#check proprerties exist in dict. Can use dict.get(property) Watch part 6 of the video here: https://www.youtube.com/watch?v=8OKTAedgFYg
+
 def compare_value(player_name_card,house_name_card):
     print("compare value", player_name_card, house_name_card)
     if house_name_card in list_card_joker:
