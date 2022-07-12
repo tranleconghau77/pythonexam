@@ -107,8 +107,5 @@ print("Result",result)
 
 play_guess = input("Your guess")
 
-if play_guess == result:
-    switch arguments:
-        case "stop":
-            return player_points; 
+
 
