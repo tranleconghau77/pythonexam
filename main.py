@@ -1,113 +1,67 @@
-from ast import arguments
-import random
 
-##Initialize variables
+import re
+from object import house
 
-player_points = 60
+from list_cards import add_cards
 
-player = {
-    "name" : "PLAYER",
-    "value" : "",
-    "guess" : ""
-}
-house = {
-    "name" : "HAU SERVER:",
-    "value" : ""
-}
-player_points = 60
+from object import reward
 
-list_cards = []
+from card_player import card_player
 
-list_card_numbers = {
-    "Two" : 2,
-    "Three" : 3,
-    "Four" : 4,
-    "Five" : 5,
-    "Six" : 6,
-    "Seven" : 7,
-    "Eight" : 8,
-    "Nine" : 9,
-    "Ten" : 10,
-    "Jack" : 11,
-    "Queen" : 12,
-    "King" : 13,
-    "Ace" : 14
-}
+from compare_value import compare_value
 
-
-list_card_joker = {
-    "Black Joker" : 15,
-    "Red Joker" : 16
-}
-
-# list_type_card = ["Heart", "Diamond", "Club", "Spade"]
-list_type_card = {
-    "Heart" : 4,
-    "Diamond" : 3,
-    "Club" : 2,
-    "Spade" : 1
-}
-
-
-def add_cards():
-    for i in list_card_numbers:
-        for j in list_type_card:
-            list_cards.append(j + " " + str(i))
-
-    for z in list_card_joker:
-        list_cards.append(z)
+from player import player
 
 add_cards()
 
-#House PC
-##
-house["value"] = random.choice(list_cards)
-print(house["name"] + " " + house["value"])
-
-#Player
-# player["name"] = input("Your name:").upper()
-player_random_value = random.choice(list_cards) 
-while player_random_value == house["value"]:
-    player_random_value = random.choice(list_cards) 
+print("===================INFORMATION====================")
+def play():
     
-player["value"] = player_random_value
     
-print(player["name"] + ": " + player["value"])
-
-
-#check proprerties exist in dict. Can use dict.get(property) Watch part 6 of the video here: https://www.youtube.com/watch?v=8OKTAedgFYg
-
-def compare_value(player_name_card,house_name_card):
-    print("compare value", player_name_card, house_name_card)
-    if house_name_card in list_card_joker:
-        house_value = list_card_joker[house_name_card]
+    txt = "The rain in Spain1@"
+    x = re.match("[^a-z]", txt)
+    if x:
+        print("YES! We have a match!")
     else:
-        temp_house_value =house_name_card.split(" ")
-        house_value = list_card_numbers[temp_house_value[1]]
-    
-    if player_name_card in list_card_joker:
-        player_value = list_card_joker[player_name_card]
-    else:
-        temp_player_value =player_name_card.split(" ")
-        player_value = list_card_numbers[temp_player_value[1]]
+        print("No match")
 
-    if player_value > house_value:
-        return "high"
-    elif player_value == house_value:
+    go = True
+    name_player = input("Type your name")
+
+    user = player(name_player)
+    user.set_points(user.get_points() - 25)
+
+    while(go):
         
-        house_value = list_type_card[temp_house_value[0]]
-
-        player_value = list_type_card[temp_player_value[0]]
-
-        if player_value > house_value:
-            return "high"
-    return "low"
+        card_player(user)
+        print("player value",user.get_value())
+        result = compare_value(user.get_value(), house ["value"])
 
 
-result = compare_value(player["value"], house["value"])
-print("Result",result)
+        #Input your guess
+        play_guess = input("Your guess")
 
-play_guess = input("Your guess")
+        if (result == play_guess):
+            print("CORRECT")
+            print("YOUR POINT",user.get_points())
+
+            option = input("Type to continue or stop ")
+            global reward
+            if option == 'c':
+                reward*=2
+                print("reward",reward)
+            elif option == 's':
+                reward*=2
+                user.add_point(reward)
+                print("YOUR POINT",user.get_points())
+                return
+
+        elif result != play_guess:
+            print("INCORRECT")
+            print("YOUR POINT",user.get_points())
+            go = False
+
+play()
 
 
 
