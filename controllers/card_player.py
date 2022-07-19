@@ -16,4 +16,3 @@ def card_player(user):
         player_random_value = random.choice(list_cards) 
 
     user.set_value(player_random_value)
-    print("PLAYER NAME"+ ": " + str(user.get_name()))
