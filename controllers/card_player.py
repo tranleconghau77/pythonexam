@@ -1,18 +1,21 @@
 
 import random
-from object import house
-from object import list_cards
+
+import sys
+print("AAAAAA",sys.path)
+
+from .list_cards import add_cards
 
 
-def card_player(user):
+
+def card_player():
+    list_cards = add_cards()
     #House PC
     ##
-    house["value"] = random.choice(list_cards)
-    print(house["name"] + " " + house["value"])
-
+    card_one = random.choice(list_cards)
     #Player
-    player_random_value = random.choice(list_cards) 
-    while player_random_value == house["value"]:
-        player_random_value = random.choice(list_cards) 
-
-    user.set_value(player_random_value)
+    card_two = random.choice(list_cards) 
+    while card_two == card_one:
+        card_two = random.choice(list_cards)
+    
+    return {"card_one" : card_one ,"card_two" : card_two}

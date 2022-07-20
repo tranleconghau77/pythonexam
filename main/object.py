@@ -5,7 +5,7 @@ house = {
 }
 
 
-
+list_cards = []
 
 list_card_numbers = {
     "Two" : 2,
@@ -29,6 +29,7 @@ list_card_joker = {
     "Red Joker" : 16
 }
 
+# list_type_card = ["Heart", "Diamond", "Club", "Spade"]
 list_type_card = {
     "Heart" : 4,
     "Diamond" : 3,

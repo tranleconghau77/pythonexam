@@ -1,6 +1,6 @@
-from .object import list_card_joker
-from .object import list_card_numbers
-from .object import list_type_card
+from object import list_card_joker
+from object import list_card_numbers
+from object import list_type_card
 
 #check proprerties exist in dict. Can use dict.get(property) Watch part 6 of the video here: https://www.youtube.com/watch?v=8OKTAedgFYg
 def compare_value(player_name_card,house_name_card):
