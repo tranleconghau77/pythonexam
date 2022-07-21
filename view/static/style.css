@@ -14,4 +14,9 @@ img {
   width: 50%;
   display: flex;
   justify-content: space-between;
+}
+
+.form__content {
+  display: flex;
+  align-items: center;
 }/*# sourceMappingURL=style.css.map */

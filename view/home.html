@@ -12,28 +12,27 @@
 <body>
     <div class="container">
         <div class="content">
+            <form class="form" action="/guess_value" method="post">
+                <div class="form__content">
+                    <div class="card one">
+                        <img src="{{static_url('player.jpg')}}" alt="">
+                        <input name="card_one" type="text" value="{{data['card_one']}}">
+                    </div>
 
-            <div class="card one">
-                <img src="{{static_url('player.jpg')}}" alt="">
-                <input type="text" value="{{data['card_one']}}">
-            </div>
+                    <div class="card two">
+                        <img src="{{static_url('person-icon.png')}}" alt="">
+                        <input name="card_two" type="text" value="{{data['card_two']}}">
+                    </div>
 
-            <div class="card two">
-                <img src="{{static_url('person-icon.png')}}" alt="">
-                <input type="text" value="{{data['card_two']}}">
-            </div>
-
-            <div class="guess">
-                <form action="/guess_value" method="post">
-                    <div class="form form__content">
+                    <div class="group__select">
                         <select name="value_guess" id="">
                             <option value="high">High</option>
                             <option value="low">Low</option>
                         </select>
+                        <button type="submit">GUESS</button>
                     </div>
-                    <button type="submit">GUESS</button>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 </body>
