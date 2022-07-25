@@ -1,25 +1,13 @@
 import asyncio
 import tornado.web
 import os
-import json
 
 from controllers.main_handler import MainHandler
 from controllers.random_value_player_handler import RandomValuePlayerHandler
 from controllers.login import Login
 from controllers.verify_login import VerifyLogin
 from controllers.guess_value import GuessValue
-
-
-# class GuessValue(tornado.web.RequestHandler):
-#     def post(self):
-#         self.write(self.request.body)
-#         guess_result = self.request.body
-#         self.write(result_compare)
-#         if guess_result == result_compare:
-#             self.write("You win")
-#         else:
-#             self.write("You lose")
-#         # self.redirect("/")
+from services.connect_db import connect_db
 
 
 def make_app():
@@ -47,3 +35,4 @@ if __name__ == "__main__":
     print("Server running")
     result_compare = None
     asyncio.run(main())
+    connect_db.close()
