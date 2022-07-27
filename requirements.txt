@@ -1,0 +1,3 @@
+pymongo==4.2
+tornado==6.2
+python-dotenv==0.20
