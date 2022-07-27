@@ -1,9 +1,6 @@
 
 import random
 
-import sys
-print("AAAAAA",sys.path)
-
 from .list_cards import add_cards
 
 

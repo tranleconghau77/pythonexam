@@ -7,7 +7,6 @@ from controllers.random_value_player_handler import RandomValuePlayerHandler
 from controllers.login import Login
 from controllers.verify_login import VerifyLogin
 from controllers.guess_value import GuessValue
-from services.connect_db import connect_db
 
 
 def make_app():
@@ -35,4 +34,4 @@ if __name__ == "__main__":
     print("Server running port 8888")
     result_compare = None
     asyncio.run(main())
-    connect_db.close()
+
