@@ -32,7 +32,7 @@ async def main():
     await asyncio.Event().wait()
 
 if __name__ == "__main__":
-    print("Server running")
+    print("Server running port 8888")
     result_compare = None
     asyncio.run(main())
     connect_db.close()
