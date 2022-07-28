@@ -10,7 +10,7 @@ class TestPlayer(unittest.TestCase):
         del self.player
 
     def test_add_points(self):
-        self.player.add_point(60)
+        self.player.add_points(60)
         self.assertEqual(self.player.get_points(), 120)
 
 if __name__ == "__main__":

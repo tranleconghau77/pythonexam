@@ -1,26 +1,31 @@
 import tornado
+import pymongo
 
-from functions.file_manager import FileManager
 from functions.player import player
 from services.connect_db import connect_db
 
-
 class VerifyLogin(tornado.web.RequestHandler):
     def post(self):
+        self.set_header("Content-Type", "text/plain")
         username = self.request.body
 
-        db = connect_db()
+        print(username)
+        print(username.decode("utf-8"))
+        print(type(username))
 
-        game_cards = db.game_cards
-        result = game_cards.customers
+        cluster = connect_db()
 
-        print('Total Record for the collection: ' + str(result.count()))
-        for record in result.find().limit(10):
-            print(record)
 
-        self.write(str(result))
+        db = cluster["game_cards"]
+        collection = db["customers"]
 
-        # if username not in data:
-        #     new_player = player(username)
-        #     print(type(new_player.__dict__))
-        #     data.append(new_player.__dict__)
+
+        list_data = list(collection.find({}))
+
+        x = [x for x in list_data if username.decode("utf-8") == x ]
+
+        # for result in results:
+        #     print(result["_id"])
+
+        print("find", x)
+        self.write("Hello")

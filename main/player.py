@@ -5,7 +5,7 @@ class player:
         self.points = point
         self.value = value
 
-    def add_point(self, value):
+    def add_points(self, value):
         self.points += value
 
     def get_points(self):

@@ -53,7 +53,7 @@ def main():
                 print("reward",reward)
             elif option == 's':
                 reward*=2
-                user.add_point(reward)
+                user.add_points(reward)
                 print("YOUR POINT",user.get_points())
                 return
 
