@@ -2,3 +2,4 @@ pymongo==4.2
 tornado==6.2
 python-dotenv==0.20
 dnspython==2.2
+motor==3.0

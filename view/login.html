@@ -9,7 +9,7 @@
 
   <body>
     <div class="container">
-      <form action="{{request.verifyLogin}}" method="post">
+      <form action="/verifyLogin" method="post" enctype="multipart/form-data">
         <div class="form form__content">
           <input name="username" type="text" placeholder="Username" />
         </div>
